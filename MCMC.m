@@ -35,7 +35,7 @@ for n=1:moves
 
 
     probACC = exp(-(newV-currV)/kT);
-    if newV < currV | probACC >= (1)
+    if newV < currV || probACC >= (1)
         count = count + 1;
         currData = newData;
         aveV = aveV + newV;

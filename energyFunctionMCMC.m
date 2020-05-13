@@ -25,7 +25,7 @@ for i=1:length(data)
                 valV = 4*epsilonnb*((sigma/dis)^12-(sigma/dis)^6);
             else
                 valV = 4*epsilon*((sigma/dis)^12-(sigma/dis)^6);
-            end      
+            end
             tempP = tempP + valV;
         end
 

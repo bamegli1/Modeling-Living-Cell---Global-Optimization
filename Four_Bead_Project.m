@@ -32,7 +32,7 @@ figure(2)
 plot3(coords(:,1),coords(:,2),coords(:,3),'-bo')
 hold on 
 plot3(xyz(:,1),xyz(:,2),xyz(:,3),'-ro')
-plot3(coords1(:,1),coords1(:,2),coords1(:,3),'-go')
+%plot3(coords1(:,1),coords1(:,2),coords1(:,3),'-go')
 hold off
 %%
 data = importdata('onesequence_-22.79.dat',' ',1);
