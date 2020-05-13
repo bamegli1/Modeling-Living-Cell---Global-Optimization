@@ -3,7 +3,7 @@
 %Outputs = average potential energy and percentage acceptance of moves 
 %MCMC function that generates moves and returns energies.
 
-function[currV,currData]=MCMC(moves,kT,data)
+function[currV,currData]=MCMC(moves,kT,data,seq,nppm_all,k1,le,temp,m,zeta,dt)
 
 
 pmatrix = [1,3,9,12,14,16,17,18,21,22,23,24,25,26];
@@ -14,6 +14,7 @@ currData=data;
 
 aveV = 0;
 count = 0;
+
 
 for n=1:moves
     %Random Particle and position
@@ -30,8 +31,10 @@ for n=1:moves
     %    round(newData(randrow,:)/boxL);
     
     %Test energies    
-    currV = energyFunctionMCMC(sigma,epsilon,currData,pmatrix);
-    newV = energyFunctionMCMC(sigma,epsilon,newData,pmatrix);
+    currV = nppm(currData,seq,nppm_all,k1,le,temp,m,zeta,dt);
+    newV = nppm(newData,seq,nppm_all,k1,le,temp,m,zeta,dt);
+    %currV = energyFunctionMCMC(sigma,epsilon,currData,pmatrix);
+    %newV = energyFunctionMCMC(sigma,epsilon,newData,pmatrix);
 
 
     probACC = exp(-(newV-currV)/kT);
